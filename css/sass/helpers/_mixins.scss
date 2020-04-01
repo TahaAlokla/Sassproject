@@ -1,0 +1,40 @@
+// @mixin  minlarge {
+//     @media(max-width:1200px) {
+//         @content;
+//     }
+    
+// }
+
+@mixin  overlay {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+
+// Auto Add prefix to propraty
+@mixin prefixer($propraty , $value , $prefixers :()) {
+
+    @each $prefix in $prefixers {
+        #{'-'+$prefix+'-'+$propraty} : $value;
+        
+    }
+
+    #{$propraty} : $value; 
+}
+
+// Add prifex to Animation
+@mixin  keyFrame($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+    
+}
